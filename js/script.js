@@ -66,6 +66,10 @@ function reproduzirMusica() {
   audioElement.play();
 }
 
+window.addEventListener("load", () => {
+  musicaAtual = musicas[indiceMusicaAtual];
+});
+
 heartIcon.addEventListener("click", function () {
   if (musicasFavoritadas?.includes(musicaAtual.nomeMusica)) {
     musicasFavoritadas = musicasFavoritadas.filter(
