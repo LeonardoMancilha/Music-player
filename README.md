@@ -1,40 +1,52 @@
+# Music Player 🎶
+
 Essa aplicação é um player de música simples que reproduz uma lista de músicas em sequência. Ele utiliza recursos do DOM para controlar os elementos HTML e do áudio para reproduzir as músicas.
 
 ## Funcionalidades
-- Botão "Iniciar/Parar": Quando clicado, reproduz ou pausa a música atual.
-- Botão "Próxima música": Avança para a próxima música da lista.
-- Botão "Música anterior": Volta para a música anterior da lista.
-- Ícone de coração: Permite favoritar a música atual. Ao clicar no ícone, a cor muda para vermelho se a música estiver favoritada, e volta para branco se não estiver favoritada.
-- Barra de volume: Permite ajustar o volume do áudio.
-- Tecla "M": Alterna entre volume 0 e o volume anteriormente selecionado. Se o volume estiver em 0, o áudio é pausado.
-- Tecla "K": Inicia ou para a reprodução da música atual.
-- Teclas de seta (esquerda/direita): Avança ou retrocede para a próxima ou música anterior, respectivamente.
+- **Botão "Iniciar/Parar"**: Quando clicado, reproduz ou pausa a música atual.
+- **Botão "Próxima música"**: Avança para a próxima música da lista.
+- **Botão "Música anterior"**: Volta para a música anterior da lista.
+- **Ícone de coração**: Permite favoritar a música atual. Ao clicar no ícone, a cor muda para vermelho se a música estiver favoritada, e volta para branco se não estiver.
+- **Barra de volume**: Permite ajustar o volume do áudio.
+- **Tecla "M"**: Alterna entre volume 0 e o volume anteriormente selecionado. Se o volume estiver em 0, o áudio é pausado.
+- **Tecla "K"**: Inicia ou para a reprodução da música atual.
+- **Teclas de seta (esquerda/direita)**: Avança ou retrocede para a próxima ou música anterior, respectivamente.
 
-## Explicação
-A primeira parte do código é responsável por selecionar os elementos HTML necessários para a interação com o usuário. Os elementos são selecionados usando o método querySelector, e as referências a eles são armazenadas em variáveis para uso posterior. Por exemplo, const iniciar = document.querySelector('.iniciar'); seleciona o elemento HTML com a classe "iniciar" e o armazena na variável iniciar.
+## 📸 Demonstração
 
-Em seguida, temos a definição de um array chamado musicas que contém os detalhes das músicas que serão reproduzidas. Cada objeto no array representa uma música e possui propriedades como nomeMusica, nomeCantor, src (o caminho para o arquivo de áudio) e imagem (o caminho para a imagem da capa da música).
+<img src="https://github.com/user-attachments/assets/fb11e653-e031-435f-9195-7890466fe63e">
 
-Existem várias variáveis declaradas que são usadas para controlar o estado da aplicação. Algumas delas são:
+## Explicação do Código
+A primeira parte do código é responsável por selecionar os elementos HTML necessários para a interação com o usuário. Os elementos são selecionados usando o método `querySelector`, e as referências a eles são armazenadas em variáveis para uso posterior.
 
-indiceMusicaAtual: Armazena o índice da música atualmente em reprodução no array musicas.
-rotateIntervalId: Armazena o ID do intervalo utilizado para girar a imagem da capa da música.
-tempoReproducao e tempoPausado: Armazenam o tempo atual de reprodução e pausa da música, respectivamente.
-musicaAtual: Armazena o objeto da música atualmente em reprodução.
-A função reproduzirMusica() é responsável por iniciar a reprodução da música. Ela é chamada quando o botão "Iniciar/Parar" é clicado. Essa função realiza várias tarefas, como interromper a música atualmente em reprodução (se houver), obter os detalhes da próxima música a ser reproduzida a partir do array musicas, atualizar os elementos HTML com os detalhes da música (nome, cantor, imagem), iniciar a rotação da imagem da capa, atualizar o progresso da música e reproduzir o áudio.
+### Estrutura de Dados
+- **Array `musicas`**: Armazena as informações de cada música, como `nomeMusica`, `nomeCantor`, `src` (arquivo de áudio) e `imagem` (capa da música).
+- **Variáveis de Controle**:
+  - `indiceMusicaAtual`: Índice da música atual no array.
+  - `rotateIntervalId`: ID do intervalo para rotacionar a imagem da capa.
+  - `tempoReproducao` e `tempoPausado`: Controlam o tempo de reprodução e pausa.
+  - `musicaAtual`: Representa o objeto da música em reprodução.
 
-A função pararMusica() é responsável por interromper a reprodução da música atual. Ela é chamada quando o botão "Parar" é clicado ou quando uma nova música é selecionada. Essa função para a rotação da imagem, armazena o tempo de reprodução atual, pausa o áudio, remove o evento de atualização do progresso da música e atualiza a visibilidade dos botões HTML.
+### Funções Principais
+- **`reproduzirMusica()`**: Inicia a reprodução da música, atualiza os detalhes da interface e rotaciona a capa.
+- **`pararMusica()`**: Pausa a música, interrompe a rotação da capa e armazena o tempo de reprodução.
+- **`verificarSeMusicaFavoritada()`**: Atualiza o status de favorito da música atual.
+- **`atualizarProgresso()`**: Controla o tempo de pausa da música.
 
-Outras funções, como verificarSeMusicaFavoritada() (para verificar e atualizar o status de favoritos da música atual) e atualizarProgresso() (para armazenar o tempo de pausa da música), são usadas para tarefas específicas.
+### Event Listeners
+Os event listeners respondem a eventos como cliques nos botões, ajustes de volume e pressionamento de teclas, chamando as funções correspondentes para executar a lógica do player.
 
-Existem também os event listeners que respondem a diferentes eventos, como cliques em botões, alterações na barra de volume e pressionar teclas específicas. Esses event listeners chamam as funções correspondentes para executar a lógica apropriada.
+## 📚 Conceitos Aprendidos
 
-No geral, o código controla a reprodução de músicas, a atualização dos elementos HTML, o controle do volume, a rotação da imagem da capa e a interação com o usuário. Ele utiliza recursos do DOM e do áudio para fornecer uma experiência básica de reprodução de músicas em sequência.
+Durante o desenvolvimento deste projeto, foram abordados os seguintes conceitos:
 
-## Tecnologias / Tecnologies
-- ``HTML``
-- ``CSS``
-- ``JavaScript``
+- **Manipulação de Áudio com JavaScript**: Controle de reprodução, pausa e ajuste de volume.
+- **Manipulação do DOM**: Atualização dinâmica dos elementos HTML para refletir o estado do player.
+- **Eventos de Teclado e Clique**: Controle da interação com o usuário através de teclas e cliques.
+- **Animações com CSS**: Efeitos visuais, como rotação da imagem da capa durante a reprodução.
+- **Gerenciamento de Estado**: Controle do índice atual da música e favoritos.
 
-
-<p>Feito com ❤️ por Leonardo Machado 👋🏽 [Entre em contato!](https://www.linkedin.com/in/leonardommachado/) </p>
+## Tecnologias Utilizadas
+- **HTML**
+- **CSS**
+- **JavaScript**
